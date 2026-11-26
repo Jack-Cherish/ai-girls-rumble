@@ -1,0 +1,117 @@
+/* Character studio uses the same ink, paper and player colours as fighter select. */
+body.gx.gx-page:has(#editor:not([hidden])) {
+  background: radial-gradient(circle, #38363e 1px, transparent 1.2px) 0 0 / 7px 7px, var(--gx-ink);
+}
+body.gx.gx-page:has(#editor:not([hidden])) > header.topbar,
+body.gx:has(#editor:not([hidden])) #gxBack { display: none !important; }
+body.gx.gx-page [hidden] { display: none !important; }
+body.gx.gx-page:has(#editor:not([hidden])) > main {
+  max-width: 1390px;
+  padding: clamp(12px, 2.6vw, 36px) clamp(12px, 4vw, 64px);
+}
+#editor {
+  --seat: var(--gx-p1);
+  color: var(--gx-paper);
+  font-family: var(--gx-title);
+}
+
+.studio-head {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: clamp(14px, 2vw, 28px); padding-right: 10px;
+  background: var(--gx-ink); border-bottom: 3px solid var(--gx-paper);
+}
+.studio-head > div {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px;
+  padding: 13px clamp(30px, 5vw, 84px) 13px 18px;
+  background: var(--gx-yellow); color: var(--gx-ink);
+  clip-path: polygon(0 0,100% 0,calc(100% - 22px) 100%,0 100%);
+}
+.studio-head h1 { margin: 0; font: italic 1000 clamp(28px, 3.5vw, 52px)/1.1 var(--gx-title); letter-spacing: -.05em; }
+.studio-head small { font: italic 900 11px/1 var(--gx-title); letter-spacing: .12em; }
+.studio-head button, #closeArcadeSelect {
+  background: #28272f; color: var(--gx-paper); border: 0; border-radius: 0;
+  padding: 10px 16px; font: italic 800 14px/1.2 var(--gx-title);
+  clip-path: polygon(7px 0,100% 0,calc(100% - 7px) 100%,0 100%); cursor: pointer;
+}
+.studio-head button:is(:hover,:focus-visible), #closeArcadeSelect:is(:hover,:focus-visible) { color: var(--gx-ink); background: var(--gx-yellow); }
+#editor .workgrid { display: grid; grid-template-columns: minmax(240px,.83fr) minmax(0,1.25fr); gap: clamp(18px,3vw,42px); }
+#editor .card { min-width: 0; box-shadow: 5px 5px 0 #08080a; border: 2px solid #45434c; border-radius: 0; background: var(--gx-ink2); }
+#editor .previewcard { display: block; padding: 0; overflow: hidden; position: sticky; top: 12px; }
+#editor .picks { display: flex; gap: 4px; margin: 0; padding: 3px; background: var(--gx-ink); border: 0; border-radius: 0; }
+#editor .picks button {
+  flex: 1; color: #dfdce2; background: #2d2b34; border: 0; border-radius: 0; padding: 11px 6px;
+  font: italic 800 15px/1.3 var(--gx-title); clip-path: polygon(7px 0,100% 0,calc(100% - 7px) 100%,0 100%);
+}
+#editor .picks button.selected { background: var(--seat); color: var(--gx-ink); }
+.studio-art {
+  height: clamp(225px, 39dvh, 440px); position: relative; isolation: isolate; overflow: hidden;
+  border-block: 3px solid var(--gx-ink);
+  background: linear-gradient(111deg,var(--seat) 0 59%,var(--gx-ink) 59% 61%,#eae5d9 61%);
+}
+.studio-art::before {
+  content: ''; position: absolute; inset: 0; z-index: -1; opacity: .31;
+  background: radial-gradient(circle, #232127 1.5px, transparent 1.9px) 0 0 / 7px 7px;
+  mask-image: linear-gradient(135deg,black,transparent 75%);
+}
+#editor .studio-art > img, #editor .studio-art > canvas { display: block; width: 100%; height: 100%; max-height: none; object-fit: contain; }
+#editor .studio-art > img { padding: 6px; filter: drop-shadow(4px 4px 0 #16151a55); }
+#editor .previewnames { padding: 14px 18px 17px; }
+#editor .previewnames h2 { margin: 0 0 8px; font: italic 900 clamp(24px,2.5vw,42px)/1.15 var(--gx-title); color: var(--seat); }
+#editor .previewnames p { margin: 5px 0; color: #d9d6dc; line-height: 1.5; }
+#editor .primary, #editor .secondary {
+  border-radius: 0; padding: 11px 17px; min-height: 40px; border: 0;
+  font: italic 800 15px/1.25 var(--gx-title); box-shadow: none;
+}
+#editor .primary { background: var(--gx-yellow); color: var(--gx-ink); }
+#editor .secondary { background: #33313a; color: var(--gx-paper); border-left: 3px solid var(--seat); }
+#editor #testSkill { width: 100%; padding: 14px 18px; background: var(--seat); display: flex; justify-content: space-between; }
+#editor .editform { display: grid; gap: 14px; padding: clamp(15px,2.1vw,30px); }
+#editor .editform h2 {
+  margin: 0 0 2px; border-bottom: 2px solid #514e58; padding: 0 0 9px 11px;
+  border-left: 6px solid var(--gx-yellow); color: var(--gx-paper); font: italic 900 22px/1.2 var(--gx-title);
+}
+#editor .editform h2:not(:first-child) { margin-top: 12px; }
+#editor .editform label { color: var(--gx-paper); }
+#editor .editform :is(input,select,textarea) { max-width: 100%; border-radius: 0; color: var(--gx-paper); border: 1px solid #56535f; background: #121116; }
+#editor .editform :is(input,select,textarea):focus-visible { outline: 2px solid var(--gx-yellow); outline-offset: 1px; }
+#editor .editform input[type=file]::file-selector-button { background: #393640; color: var(--gx-paper); padding: 6px 10px; border: none; margin-right: 10px; }
+#editor .editform :is(details,#modelSetup,.skilloutput) { background: #26242c; border: 1px solid #45424c; border-radius: 0; padding: 12px; }
+#editor .editform .skilloutput { border-left: 4px solid var(--seat); }
+#editor .editform :is(.kind, summary) { color: var(--gx-yellow); }
+#editor .editform small,#editor .twocolnote { color: #c5c1ce; }
+#selectShell { position: relative; }
+#selectBoard { height: min(100dvh,56.25vw); }
+.selectTop {
+  position: absolute; inset: 0 2% auto auto; height: min(6.1vw,10.8dvh); z-index: 2; padding: 0;
+  background: transparent; display: flex; align-items: center; gap: 1.5vw;
+}
+@media (max-aspect-ratio:1/1) {
+  #selectBoard { height: min(100dvh,149vw); }
+  .selectTop { height: 15vw; }
+}
+@media (max-width: 720px) {
+  #editor .workgrid { grid-template-columns: minmax(0,1fr); }
+  #editor .previewcard { position: static; display: grid; grid-template-columns: 40% 1fr; align-items: stretch; gap: 0; }
+  #editor .previewcard .picks, #editor .previewcard .primary { grid-column: 1 / -1; }
+  #editor .studio-art { height: 175px; }
+  #editor .previewnames { align-self: center; }
+  #editor .editform .twoform { grid-template-columns: minmax(0,1fr); }
+  .studio-head small { display: none; }
+}
+
+#studioRoster {
+  display: grid; grid-template-columns: repeat(10,minmax(0,1fr));
+  gap: clamp(4px,.65vw,10px); margin: 0 0 20px;
+}
+#studioRoster button {
+  position: relative; padding: 0; overflow: hidden; background: var(--gx-ink2);
+  color: var(--gx-paper); border: 2px solid #56545d; border-radius: 0; cursor: pointer;
+}
+#studioRoster img { display: block; width: 100%; height: clamp(44px,5.5vw,72px); object-fit: cover; object-position: 50% 42%; }
+#studioRoster span { display:block; padding: 4px 1px; font: italic 800 clamp(10px,1.05vw,15px)/1.1 var(--gx-title); }
+#studioRoster button[aria-pressed=true] { border-color: var(--gx-yellow); background: var(--gx-yellow); color: var(--gx-ink); }
+#studioRoster button:focus-visible { outline: 3px solid white; outline-offset: 2px; }
+@media(max-width:720px) { #studioRoster {grid-template-columns:repeat(5,minmax(0,1fr)); gap:5px;} }
+.hero-tools{display:flex;gap:.65rem;flex-wrap:wrap;margin:1rem 0}.hero-tools button,#heroDialog button{padding:.65rem 1rem;background:#262632;color:white;border:1px solid #555563;font-weight:750;cursor:pointer}.hero-tools button:first-child,#heroSubmit{background:#eafa57!important;color:#17171d!important}#heroDialog{width:min(35rem,92vw);max-height:86dvh;overflow:auto;color:#f5f4ee;background:#191920;border:2px solid #eafa57;padding:1.3rem}#heroDialog::backdrop{background:#080811cf}#heroDialog header{display:flex;align-items:center;justify-content:space-between}#heroDialog h2{font-style:italic;color:#eafa57}#heroDialog label{display:grid;gap:.3rem;margin:.7rem 0}#heroDialog :is(textarea,input,select){background:#101016;color:white;border:1px solid #5e5e69;padding:.55rem;width:100%;box-sizing:border-box}#heroDialog [hidden]{display:none}#heroDialog #heroMsg{color:#ecf56a}
+
+#heroEquipped{display:grid;gap:.55rem}.equippedMove{display:grid;text-align:left;gap:.35rem;background:#26242c;color:var(--gx-paper);border:1px solid #55535f;border-left:4px solid var(--seat);padding:.85rem;cursor:pointer}.equippedMove:hover,.equippedMove:focus-visible{border-color:var(--seat)}

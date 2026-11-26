@@ -1,0 +1,51 @@
+/* Keep the three rule cards together on a readable board above the arena. */
+dialog.ra-panel {
+  position:fixed; inset:0; margin:0; padding:0; border:0;
+  width:100%; height:100%; height:100dvh; max-width:none; max-height:none;
+  box-sizing:border-box; overflow:hidden; isolation:isolate; border-radius:0; box-shadow:none;
+  color:#faf9f4; font-family:inherit;
+  background:#9488a3 url('assets/stages/meridian/sky.webp') center 45%/cover no-repeat;
+}
+dialog.ra-panel[open] { display:grid; grid-template:minmax(0,1fr) / minmax(0,1fr); align-items:end; justify-items:center; }
+.ra-panel::backdrop { background:#756e8d; }
+.ra-scenery { position:absolute; inset:0; z-index:-1; overflow:hidden; pointer-events:none; }
+.ra-scenery::before {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(to top, #55557555, transparent 55%);
+}
+.ra-fighter {
+  position:absolute; top:3%; height:107%; width:45%; max-width:none;
+  object-fit:contain; object-position:50% 0; user-select:none;
+  filter:drop-shadow(2px 6px 4px #27213855);
+}
+.ra-seat-0 { left:-6%; }
+.ra-seat-1 { right:-6%; }
+.ra-mirror { transform:scaleX(-1); }
+.ra-board {
+  box-sizing:border-box; width:min(920px,84vw); margin:0 0 clamp(16px,5vh,54px);
+  max-height:78%; overflow:auto; overscroll-behavior:contain;
+  padding:clamp(16px,2.6vw,36px); background:#191921;
+  border:2px solid #edf657; box-shadow:6px 7px 0 #24213299;
+}
+@media (max-width:850px) {
+  .ra-board { width:94%; max-height:75%; margin-bottom:2vh; }
+  .ra-fighter { width:62%; height:100%; }
+  .ra-seat-0 { left:-5%; } .ra-seat-1 { right:-5%; }
+}
+@media (max-height:520px) and (min-width:651px) {
+  .ra-board { width:min(920px,88%); max-height:80%; margin-bottom:1.5vh; padding:12px 18px; }
+}
+.ra-panel header,.ra-panel form{display:flex;align-items:center;justify-content:space-between;gap:12px}.ra-panel header small,.ra-cards article>small:first-child{color:#f3fa59;font-weight:800;letter-spacing:.12em}.ra-panel h2{font-size:clamp(25px,4vw,46px);font-style:italic;margin:.5em 0 .2em}.ra-panel p{line-height:1.6}.ra-sub{color:#e2e2e8}.ra-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}.ra-cards article{background:#25252d;padding:16px;border-top:4px solid #eef65a;display:flex;flex-direction:column}.ra-cards article small:last-of-type{margin-top:auto;color:#dbdbea}.ra-cards h3{font-size:22px;margin:.45em 0}.ra-panel button,.ra-panel input{padding:10px 14px;font:inherit}.ra-panel button{background:#eff65a;color:#15151a;border:0;font-weight:800;cursor:pointer}.ra-panel header button{background:#31313a;color:#fff}.ra-panel form,.ra-cards button{margin-top:16px}.ra-panel input{width:6em;background:#111;color:#fff;border:1px solid #aaa}.ra-toast:not([hidden]){position:fixed;z-index:11000;pointer-events:none;top:23%;left:50%;transform:translateX(-50%);background:#16151d;color:#f2fa59;padding:7px 16px;font-weight:800}.ra-panel :focus-visible{outline:3px solid #ff82ac;outline-offset:2px}@media(max-width:650px){.ra-cards{grid-template-columns:1fr}.ra-cards article{padding:10px}.ra-cards p{margin:.2em 0}}
+
+
+.ra-cards article { position:relative; }
+.ra-panel input.ra-pick { position:absolute; width:1px; height:1px; opacity:0; padding:0; }
+.ra-pick-label { cursor:pointer; margin-top:12px; color:#eef65a; font-weight:800; }
+.ra-pick-label::after { content:''; position:absolute; inset:0; }
+.ra-pick-active,.ra-pick:checked + label .ra-pick-idle { display:none; }
+.ra-pick:checked + label .ra-pick-active { display:inline; }
+.ra-pick:checked + label::after { box-shadow:inset 0 0 0 3px #eef65a; }
+.ra-pick:focus-visible + label::after { outline:3px solid #ff82ac; outline-offset:2px; }
+.ra-panel form { flex-wrap:wrap; justify-content:flex-start; }
+.ra-panel .ra-pass { background:#34343e; color:#fff; margin-left:auto; }
+.ra-panel button:disabled { background:#585862; color:#eee; cursor:default; }

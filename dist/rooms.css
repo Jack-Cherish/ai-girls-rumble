@@ -1,0 +1,22 @@
+.roomgrid{display:flex;flex-wrap:wrap;align-items:flex-start;gap:18px;margin-bottom:12px}.roompanel{flex:1 1 320px;max-width:650px;display:grid;gap:16px;border-top:2px solid var(--amber)}.roompanel>div>*,#roomPick>*,#roomBootstrap>*{margin-top:14px}.roompanel .wide{width:100%;justify-content:space-between}.roompanel ol{padding-left:23px;margin:8px 0;color:#ddd6c9}.roompanel li{padding:4px 0}.roompanel code{color:var(--amber)}.roomcopy{font-size:14px;line-height:1.6;color:var(--muted)}#joinRoomForm{display:flex;align-items:flex-end;gap:8px}#joinRoomForm label{flex:1;min-width:110px}#joinRoomForm button{flex-shrink:0}.roomnum{font:800 25px var(--mono);letter-spacing:.11em;color:var(--amber)}.roomseats{display:grid;gap:7px}.roomseat{display:flex;align-items:center;gap:12px;border:1px solid var(--line);background:#201e1b;padding:6px 10px}.roomseat canvas{width:50px;height:52px}.roomseat strong{display:block}.roomseat small{color:var(--muted)}.roomnotice{color:var(--amber);min-height:1.4em;margin-bottom:24px}.invite{max-width:345px}.invite canvas{width:180px;height:180px;image-rendering:pixelated}.invite input{font-family:var(--mono);font-size:12px}#roomRetry{margin-left:6px}#roomBootstrap>ol{margin-bottom:10px}#roomBack{white-space:nowrap}.setup .modes button{white-space:nowrap;font-size:13px}.roompanel button:disabled{cursor:default}.roompick option{color:inherit}
+@media(max-width:700px){.roomgrid{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}.roompanel{width:100%;max-width:none}.invite canvas{width:150px;height:150px}.roomnum{font-size:21px}.setup .modes button{font-size:14px}}
+
+.setup .modes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.setup .modes button{min-height:40px}h1 .roomkind{color:var(--paper)}#phoneUnavailable{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+
+.roomnotice:empty{display:none}.roomnotice:not(:empty){margin:0 0 14px}
+@media(max-width:700px){#network[data-kind="phone"] .invite{order:-1}}
+
+/* One multiplayer entry, with explicit transports behind it. */
+.setup .modes{grid-template-columns:repeat(2,minmax(0,1fr))}
+#modeOnline{grid-column:1/-1;border-top:1px solid var(--line);color:var(--amber)}
+.room-methods{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:8px 0 32px}
+.room-method-intro{grid-column:1/-1;color:var(--muted);font-size:15px;max-width:680px}
+.room-method{display:flex;flex-direction:column;gap:16px;text-align:left;padding:28px;background:linear-gradient(135deg,#25231f,#191918);border:1px solid #514a3e;border-radius:4px;min-height:250px;transition:border-color .15s,transform .15s}
+.room-method:hover{transform:translateY(-3px);border-color:var(--amber)}
+.room-method.recommended{border-top:3px solid var(--amber)}
+.method-tag{font:700 11px var(--mono);letter-spacing:.06em;color:var(--amber)}
+.room-method strong{font-size:27px;line-height:1.3;display:flex;justify-content:space-between}
+.room-method>span:not(.method-tag){font-size:15px;color:#e5ded1;line-height:1.7}
+.room-method small{font-size:12px;color:var(--muted);line-height:1.6;margin-top:auto}
+.room-method-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 18px;color:var(--amber);font-size:13px}
+@media(max-width:700px){.room-methods{grid-template-columns:1fr;gap:12px}.room-method{min-height:0;padding:22px;gap:12px}.room-method strong{font-size:23px}.room-method-intro{font-size:14px}.room-method-bar{align-items:flex-start}.room-method-bar button{flex-shrink:0}}

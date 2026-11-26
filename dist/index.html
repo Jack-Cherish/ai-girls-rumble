@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#11131c"><meta name="description" content="选择你的 AI 娘斗士，进行一场 60 秒的街机格斗。支持人机、双人、好友联机和技能工坊。"><title>AI 娘大乱斗</title><style>body.gx #lobby,body.gx:not(.gx-page)>header.topbar{display:none!important}</style><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="mobile.css"><link rel="stylesheet" href="rooms.css"><link rel="stylesheet" href="arena-ui.css"><script defer src="arena-manifest.js"></script><script defer src="art.js"></script><script defer src="arena-art.js"></script><script defer src="duel-cels.js"></script><script defer src="laoda-cels.js"></script><script defer src="nailong-cels.js"></script>
+
+<script defer src="asset-variants.js"></script>
+
+<script defer src="glm-landing-timing-v1.js"></script>
+
+<script defer src="tide-down-timing.js"></script>
+
+<script defer src="qwen-landing-timing-v1.js"></script>
+
+<script defer src="kimi-instrument-layer.js"></script>
+
+<script defer src="tide-landing-timing.js"></script>
+
+<script defer src="chatgpt-landing-timing.js"></script>
+
+<script defer src="gemini-landing-timing.js"></script>
+
+<script defer src="kimi-landing-timing.js"></script>
+
+<script defer src="glm-down-timing-v1.js"></script>
+
+<script defer src="chatgpt-down-timing.js"></script>
+<script defer src="grok-landing-timing.js"></script>
+<script defer src="doubao-landing-timing.js"></script>
+
+<script defer src="gemini-down-timing.js"></script>
+<script defer src="qwen-down-timing-v1.js"></script>
+
+<script defer src="doubao-substitute-visual.js"></script>
+<script defer src="minimax-down-timing-v1.js"></script>
+
+<script defer src="minimax-landing-timing-v1.js"></script>
+
+<script defer src="claude-block-visual.js"></script>
+<script defer src="claude-landing-timing.js"></script>
+<script defer src="claude-down-timing.js"></script>
+<script defer src="group-b-down-timing.js"></script>
+<script defer src="doubao-air-hit-timing.js"></script>
+<script defer src="group-b-movement-entry.js"></script>
+
+<script defer src="claude-guard-release-timing.js"></script>
+
+<script defer src="doubao-depth-stop-timing.js"></script>
+<script defer src="duel-render.js"></script><script defer src="local-provider.js"></script><script defer src="mechanics-group-a.js"></script>
+<script defer src="chatgpt-tail-direction-v1.js"></script>
+<script defer src="chatgpt-shield-wording-v1.js"></script>
+<script defer src="gemini-combo-fx-v1.js"></script>
+<script defer src="gemini-ultimate-stars-v1.js"></script>
+<script defer src="chatgpt-combo-fx-v1.js"></script>
+<script defer src="tide-combo-fx-v1.js"></script><script defer src="mechanics-group-b.js"></script><script defer src="mechanics-group-c.js"></script>
+<script defer src="group-c-melee-vfx-jab-v1.js"></script>
+<script defer src="glm-cross-fx-v1.js"></script>
+<script defer src="glm-finisher-fx-v1.js"></script>
+<script defer src="minimax-cross-fx-v2.js"></script>
+<script defer src="qwen-finisher-fx-v2.js"></script>
+<script defer src="minimax-finisher-fx-v2.js"></script>
+<script defer src="qwen-cross-fx-v1.js"></script>
+<script defer src="qwen-return-phase-fx-v1.js"></script>
+<script defer src="shield-single-aura-v1.js"></script>
+<script defer src="minimax-pulse-center-v1.js"></script>
+<script defer src="claude-finale-fx-v1.js"></script>
+<script defer src="claude-cast-fx-v1.js"></script>
+<script defer src="chatgpt-shield-state-v1.js"></script><script defer src="mechanics-laoda.js"></script><script defer src="mechanics-nailong.js"></script><script defer src="mechanics.js"></script><script defer src="kit.js"></script><script defer src="design.js"></script><script defer src="keys.js"></script><script defer src="ultimate-telegraph.js"></script>
+<script defer src="claude-dash-fx-v1.js"></script><link rel="stylesheet" href="auction.css"><script defer src="auction-rules.js"></script><script defer src="auction-ui.js"></script><script defer src="combat.js?v=8.21-rebuild"></script><script defer src="qr.js"></script><script defer src="lan.js"></script><script defer src="phone-relay.js"></script><script defer src="phone-link.js"></script><script defer src="peer.js"></script><script defer src="phone-client.js"></script><script defer src="mobile.js"></script><script defer src="rooms.js?v=8.10"></script><script defer src="audio-identity.js"></script><link rel="stylesheet" href="select-play.css"><link rel="stylesheet" href="shell.css?v=8.11"><link rel="stylesheet" href="workshop.css"><script defer src="select-render.js?v=8.10"></script><link rel="stylesheet" href="pact.css"><script defer src="pact-personality.js?v=personality6"></script><script defer src="pact-rules.js?v=8.17"></script><script defer src="pact-ui.js?v=8.15"></script><link rel="stylesheet" href="balance.css?v=8.20"><script defer src="balance-core.js"></script><script defer src="balance-nsga.js"></script><script defer src="balance-full.js"></script><script defer src="balance-compare.js?v=8.19"></script><script defer src="balance-ui.js?v=8.20"></script><script defer src="hero-library.js?v=8.16"></script></head>
+<body class="gx">
+<section id="gxTitle" class="gx-screen">
+<div class="gx-band"></div><div class="gx-halftone"></div>
+    <img class="gx-hero l" alt=""><img class="gx-hero r" alt="">
+    <div class="gx-logo"><small>NEURAL CLASH</small><h1>AI 娘<span>大乱斗</span></h1></div>
+    <button class="gx-press" type="button" disabled>PRESS START</button>
+</section>
+
+<header class="topbar"><div class="barwrap">
+ <a href="#lobby" id="brand" class="brand"><span class="brand-mark" aria-hidden="true">A<span>✦</span></span><strong>AI 娘大乱斗</strong></a>
+ <nav aria-label="主导航"><button id="navLobby" class="nav active">对战大厅</button><button id="navLab" class="nav">角色工坊</button></nav>
+ <button id="help" class="quiet help"><span aria-hidden="true">⌨</span> 操作说明</button>
+</div></header>
+<main>
+<section id="lobby" aria-label="对战大厅" hidden>
+ <div class="lobbygrid">
+  <div class="match-poster">
+   <div class="poster-city" aria-hidden="true"></div><div class="poster-rails" aria-hidden="true"></div>
+   <div class="poster-art" aria-hidden="true"><img alt="" id="heroArt1"><img alt="" id="heroArt0"></div>
+   <div class="poster-shading" aria-hidden="true"></div>
+   <div class="poster-title"><div class="poster-genre"><span aria-hidden="true"></span> NEURAL CLASH</div><h1>AI 娘<br><em>大乱斗</em></h1><button type="button" id="posterSelect" class="poster-select">查看斗士 <span aria-hidden="true">↗</span></button></div>
+   <div class="poster-place"><span class="location-mark" aria-hidden="true">⌖</span><span>子午线竞技场</span><small>MERIDIAN</small></div>
+   <canvas id="poster" width="960" height="400" hidden></canvas><span id="posterP1" hidden></span><span id="posterP2" hidden></span>
+  </div>
+  <aside class="setup">
+   <div class="sectionhead"><h2>对战设置</h2><span class="match-duration">60 S</span></div>
+   <div class="modes" aria-label="选择对战模式"><button class="selected" aria-pressed="true" id="modeCpu">人机对战</button><button aria-pressed="false" id="modeDuo">双人同屏</button></div>
+   <div class="roster-hdr"><h3>出战阵容</h3><div class="roster-tools"><button type="button" id="swapSeats" class="swap-seats" title="交换双方完整角色和配置">⇄ 换边</button><button type="button" class="text-action" id="showRoster">选角 <span aria-hidden="true">↗</span></button></div></div>
+   <div class="slots" id="slots"></div>
+   <button class="primary start" id="start"><span>开始对战</span><span class="startkey" aria-hidden="true"><kbd>J</kbd> ⟶</span></button>
+   <p class="setupnote" id="modeNote"></p>
+  </aside>
+ </div>
+ <section class="casting-board" aria-labelledby="castTitle"><div class="cast-heading"><h2 id="castTitle">斗士阵容 <small>FIGHTER SELECT</small></h2><span>点选查看招式与立绘</span></div><div id="lobbyCast" class="cast-grid"></div></section>
+ <div class="facility-grid" aria-label="更多玩法">
+  <button id="arenaTrain" class="facility facility-training"><span class="facility-icon scope" aria-hidden="true"><b></b></span><span><strong>训练场</strong><small>练习连招与替身</small></span><span class="facility-arrow" aria-hidden="true">↗</span></button>
+  <button id="lobbyWorkshop" class="facility facility-workshop"><span class="facility-icon pages" aria-hidden="true"><b></b></span><span><strong>角色工坊</strong><small>设计招式与角色形象</small></span><span class="facility-arrow" aria-hidden="true">↗</span></button>
+  <button id="modeOnline" class="facility facility-online"><span class="facility-icon nodes" aria-hidden="true"><b></b></span><span><strong>好友联机</strong><small>在线房间或局域网对战</small></span><span class="facility-arrow" aria-hidden="true">↗</span></button>
+ </div>
+ <div class="legend"><span class="legendtitle">快捷操作</span><span id="lobbyKeys1"></span><span id="lobbyKeys2" class="legend2"></span><button id="moreKeys">全部键位 ↗</button></div>
+</section>
+<section id="network" hidden>
+<div class="mainhead compact"><div><div class="smallcap"><b></b> MULTIPLAYER</div><h1><span class="roomkind" id="roomKind">手机</span><span>联机</span></h1></div><button type="button" id="roomBack" class="quiet">← 返回选人</button></div>
+<div id="roomMethods" class="room-methods" hidden>
+  <p class="room-method-intro">手机、电脑都能当选手。选一种开房方式，把同一个房间分享给好友。</p>
+  <button id="choosePhone" class="room-method recommended"><span class="method-tag">推荐 · 无需启动电脑主机</span><strong>在线开房 <span aria-hidden="true">↗</span></strong><span>打开游戏，创建或加入房间。支持手机对手机、手机对电脑。</span><small>需要联网和网站访问权限；优先直连，不通时自动转发。</small></button>
+  <button id="chooseLAN" class="room-method"><span class="method-tag">同一 Wi-Fi · 本地运行</span><strong>电脑主机开房 <span aria-hidden="true">↗</span></strong><span>一台电脑启动主机，其他手机或电脑扫码加入。</span><small>电脑需 Node.js 18+，保持主机运行；设备须连同一局域网。</small></button>
+</div>
+<div id="roomMethodBar" class="room-method-bar" hidden><span id="roomMethodLabel"></span><button id="changeRoomMethod" class="quiet">切换开房方式</button></div>
+<p class="roomnotice" role="status" aria-live="polite" id="roomNotice"></p>
+<div class="roomgrid" id="roomGrid">
+<div class="card roompanel" id="roomSetup">
+ <h2 id="roomSetupTitle">选择上场选手</h2>
+ <p id="roomProbe" class="roomcopy" role="status">正在检查本机房间服务…</p>
+ <div id="phoneUnavailable" hidden><p class="roomcopy">在线房间需要部署了中转服务的正式站点。离线包请使用「电脑主机开房」。</p><a hidden id="phoneOnline" href="./"></a><button class="quiet" id="phoneRetry" type="button">重新检测</button></div>
+ <div id="roomBootstrap" hidden>
+  <ol><li>在一台装有 <strong>Node.js 18 或更高版本</strong>的电脑上解压游戏包。</li><li>Windows 双击start-game.cmd。macOS 或 Linux 在解压目录运行 <code>node server.cjs</code>。</li><li>在启动器打开的页面创建房间。另一台手机或电脑连上同一 Wi-Fi，扫码加入。</li></ol>
+  <a hidden id="hostDownload" href="#"></a>
+  <p id="bundleLocal" class="roomcopy" hidden>当前离线包已经带有启动器。回到解压目录即可启动。</p>
+  <button class="quiet" id="roomRetry">重新检测</button>
+ </div>
+ <div id="roomPick" hidden>
+  <label>我带上场的选手<select id="roomPlayer"></select></label>
+  <button class="primary wide" id="makeRoom">创建房间 <span>⟶</span></button>
+  <form id="joinRoomForm"><label>加入已有房间<input type="text" id="roomCode" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" placeholder="输入六位房间号" autocomplete="off" required></label><button class="secondary" id="joinRoom" type="submit">加入房间</button></form>
+  <p id="roomSetupHint" class="roomcopy">另一位玩家可以扫码进入房间。</p>
+ </div>
+</div>
+<div class="card roompanel" id="roomLive" hidden>
+ <div class="split"><h2>房间 <span id="roomNumber" class="roomnum"></span></h2><button class="quiet" id="leaveRoom">离开房间</button></div>
+ <div id="roomSeats" class="roomseats"></div>
+ <button class="primary wide" id="roomStart" disabled>等待另一位选手</button>
+ <p class="roomcopy" id="roomLiveNote"></p>
+</div>
+<aside class="card roompanel invite" id="roomInvite" hidden>
+ <h2>扫码加入</h2><canvas id="roomQR" width="192" height="192" aria-label="房间邀请二维码"></canvas>
+ <label id="addressChoice" hidden>主机网络地址<select id="roomHost"></select></label>
+ <label>或在另一台设备打开<input id="inviteURL" readonly></label><button class="secondary" id="copyInvite">复制邀请链接</button>
+</aside></div>
+</section>
+<section id="editor" hidden>
+<header class="studio-head"><div><h1>角色工坊</h1><small>FIGHTER STUDIO</small></div><button id="backLobby" type="button">← 返回菜单</button></header>
+<div class="hero-tools"><button id="heroAdd">＋ 添加英雄</button><button id="heroDelete">删除当前英雄</button><button id="heroRestore">还原原版英雄</button></div><div id="studioRoster" role="group" aria-label="选择要编辑的角色"></div>
+<div class="workgrid"><aside class="card previewcard"><div class="studio-art"><img id="studioArt" alt="当前角色立绘"><canvas id="portrait" width="460" height="390" aria-label="当前角色预览" hidden></canvas></div><div class="previewnames"><h2 id="previewName"></h2><p id="previewSkill"></p><p id="editorUltimate"></p></div><button id="testSkill" class="primary">进入训练场试招 ↗</button></aside>
+<div class="card editform"><h2>编辑英雄</h2><p id="heroCurrentStory"></p><div class="hero-tools" aria-label="编辑方式"><button data-edit="local">本地大模型</button><button data-edit="api">API Key 生成</button><button data-edit="manual">手动配置</button></div>
+<h2>已装备招式</h2><div id="heroEquipped"></div></div></div></section>
+<section id="battle" hidden><div class="fighthead"><div class="smallcap"><b></b> 子午线竞技场 / <span id="battleMode"></span></div><div><button id="dummyStrike" class="quiet" type="button" hidden>假人反击</button><button id="sound" class="quiet" aria-pressed="true">音效 开</button><button id="pause" class="quiet">暂停</button><button id="exitBattle" class="quiet">退出对战</button></div></div>
+<div class="fightbox"><div class="hud"><div><b id="hudName0"></b><div class="hp" role="meter" aria-label="1P 体力" aria-valuemin="0" aria-valuemax="100"><i id="hp0"></i></div><div class="duel-hud-line"><span class="duel-energy" id="energy0" role="img" aria-label="奥义点"><i></i><i></i><i></i><i></i></span><b class="combo-count" id="combo0" hidden></b><small id="cd0"></small></div></div><strong id="clock">60</strong><div class="right"><b id="hudName1"></b><div class="hp" role="meter" aria-label="2P 体力" aria-valuemin="0" aria-valuemax="100"><i id="hp1"></i></div><div class="duel-hud-line"><span class="duel-energy" id="energy1" role="img" aria-label="奥义点"><i></i><i></i><i></i><i></i></span><b class="combo-count" id="combo1" hidden></b><small id="cd1"></small></div></div></div><canvas id="game" width="960" height="400" aria-label="格斗场景"></canvas><output id="duelCallout" class="duel-callout" hidden></output><div id="battleOverlay" class="overlay" hidden><small id="overlayKicker"></small><h2 id="overlayTitle"></h2><p id="overlayDesc"></p><div><button id="resumeOrReplay" class="primary"></button><button id="toLobby" class="secondary">返回大厅</button></div></div></div>
+<div id="trainingActions" hidden><button id="trainingCast" class="secondary">试一技能</button><button id="trainingCast2" class="secondary">试二技能</button><button id="trainingUltimate" class="primary">试奥义</button></div><div id="touchControls" class="touch"></div><div class="battlehint" id="battleHint"></div></section>
+<footer style="padding:16px;text-align:center;font-size:12px;opacity:.65">非官方 AI 拟人二创游戏 · 角色形象参考 <a href="https://selinlee.github.io/ai-moe-atlas/zh/" target="_blank" rel="noopener">ZipZipPipe 原设资料</a> · 仅作非商业演示，商业使用须另行确认授权</footer></main>
+
+<dialog id="arcadeSelect" aria-label="斗士选择"><div id="selectShell"><div class="selectTop"><span id="selectHelp">← → 选人　 Enter 锁定</span><button type="button" id="closeArcadeSelect">返回菜单</button></div><div id="selectBoard"><canvas id="selectCanvas" aria-hidden="true"></canvas><nav id="selectButtons" aria-label="选人操作"></nav><span id="selectLoading" role="status">正在载入立绘…</span></div><span id="selectAnnounce" role="status" class="selectSr"></span></div></dialog>
+<dialog id="rosterDialog" aria-labelledby="rosterTitle">
+ <div class="roster-toolbar"><div><small class="smallcap">FIGHTER SELECT</small><h2 id="rosterTitle">选择出战角色</h2></div><button type="button" id="closeRoster" class="quiet" aria-label="关闭角色选择">✕</button></div>
+ <div class="fighter-tabs" role="group" aria-label="角色档案"><button type="button" data-seat="0" aria-pressed="true"><img alt=""><span></span></button><button type="button" data-seat="1" aria-pressed="false"><img alt=""><span></span></button></div>
+ <div class="fighter-library" id="fighterLibrary" hidden></div><div class="fighter-profile"><div class="profile-illustration"><img id="profileArt" alt=""></div><div class="profile-copy">
+ <small id="profileSeat"></small><h3 id="profileName"></h3><div id="profileRole" class="profile-role"></div><p id="profileBio"></p><dl id="profileMoves"></dl></div></div>
+ <div class="roster-actions"><button type="button" id="profileEdit" class="secondary">编辑这名角色</button><button type="button" id="profileChoose" class="primary">作为 1P 出战</button></div>
+</dialog>
+<button type="button" hidden id="arenaSwap" aria-hidden="true">交换出战席位</button>
+<dialog id="helpDialog"><div class="split"><h2>操作说明</h2><button id="closeHelp" class="quiet" aria-label="关闭">✕</button></div><table><thead><tr><th>动作</th><th>1P</th><th>2P</th></tr></thead><tbody id="keyRows"></tbody></table><p>手机左手拖摇杆走位，右手点按普攻接三段，再接一、二技能或奥义；轻点跳跃、闪避，防御需持续按住且只防正面。闪避是快速位移，不是无敌。可一边移动一边按键，松手即释放。对手与你错开前后位置时，近身攻击可能打空。窄屏双人模式请从按钮外的提示或空白处上下滑动，推荐平板横屏。</p><p>开场两点奥义点，技能命中后攒点。满四点能放奥义，替身不是召唤技能：受击后约半秒内按替身，或提前按住等受击，消耗一点脱身，冷却 12 秒。成功后松开再按才能再次使用；没有能量时不能释放。</p></dialog>
+</body></html>

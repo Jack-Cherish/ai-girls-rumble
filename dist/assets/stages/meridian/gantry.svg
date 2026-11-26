@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="800" viewBox="0 0 960 400">
+  <defs>
+    <linearGradient id="glass" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop stop-color="#677c95" stop-opacity=".12"/>
+      <stop offset=".72" stop-color="#5c7189" stop-opacity=".24"/>
+      <stop offset="1" stop-color="#343e5a" stop-opacity=".62"/>
+    </linearGradient>
+    <linearGradient id="spar" gradientUnits="userSpaceOnUse" x1="0" x2="960">
+      <stop stop-color="#252e43"/><stop offset=".49" stop-color="#514858"/>
+      <stop offset="1" stop-color="#2a3347"/>
+    </linearGradient>
+    <linearGradient id="rail" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop stop-color="#c7a5a1"/><stop offset=".33" stop-color="#96858e"/>
+      <stop offset=".38" stop-color="#474858"/><stop offset="1" stop-color="#343a4c"/>
+    </linearGradient>
+    <pattern id="panels" width="112" height="62" x="17" y="210" patternUnits="userSpaceOnUse">
+      <path d="M0 2H110v57H0z" fill="url(#glass)"/>
+      <path d="M19 6h25L13 48H0V32z" fill="#f1d8ce" opacity=".065"/>
+      <path d="M106 5h1v49h-1z" fill="#f5c6b6" opacity=".33"/>
+      <path d="M0 0h3v59H0z" fill="#3a4255"/>
+      <path d="M0 5h2v4H0zM0 50h2v3H0z" fill="#c8aca7"/>
+    </pattern>
+  </defs>
+  <!-- Two open pavilions frame the ring; the middle stays clear for silhouettes. -->
+  <g>
+    <path d="M0 0h133l-19 9H70L28 63l-7 97v114H0z" fill="url(#spar)"/>
+    <path d="M0 5h105l-7 3H65L22 62l-3 66-6 7 3-76L57 5H0z" fill="#657080"/>
+    <path d="M0 19h40L11 55H0z" fill="#202a3a"/>
+    <path d="M0 19h35L9 52H0M24 17 4 43" fill="none" stroke="#596273" stroke-width="1.25"/>
+    <path d="M24 113h3l-3 46-3 3v-9zM70 10h30l-3 2H69z" fill="#f4bc94"/>
+    <path d="M9 156h7v95H9z" fill="#455064"/>
+    <path d="M11 164h2v36h-2z" fill="#aec6c9"/>
+    <path d="M960 0H824l12 8h47l49 33 10 66v166h18z" fill="url(#spar)"/>
+    <path d="M960 5H850l7 3h26l50 34 9 62 4 5-8-71-53-33h75z" fill="#6c7080"/>
+    <path d="M960 15h-42l38 28h4z" fill="#1f293b"/>
+    <path d="M960 17h-34l28 21m-8-22 14 10" fill="none" stroke="#596273" stroke-width="1.25"/>
+    <path d="M939 112h3v43l-3 4zM861 10h20l6 3h-25z" fill="#edb391"/>
+  </g>
+  <path d="M0 210h960v62H0z" fill="url(#panels)"/>
+  <path d="M0 208h960v4H0z" fill="url(#rail)"/>
+  <path d="M0 260h960v3H0z" fill="#5b5669"/>
+  <path d="M0 263h960v12H0z" fill="url(#spar)"/>
+  <path d="M0 265h960v1H0z" fill="#93818b"/>
+  <g fill="#dca690" opacity=".84">
+    <path d="M51 267h33v1.4H51zM260 267h21v1.4h-21zM683 267h19v1.4h-19zM882 267h28v1.4h-28z"/>
+  </g>
+</svg>

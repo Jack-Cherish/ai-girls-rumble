@@ -1,0 +1,13 @@
+#arcadeSelect{background:#101119;color:#f8e9ce;border:none;padding:0;margin:auto;width:100vw;max-width:100vw;height:100dvh;max-height:100dvh;overflow:hidden}
+#arcadeSelect::backdrop{background:#0a0c13}
+#arcadeSelect[open]{display:grid;place-items:center}
+#selectShell{width:min(100vw,178dvh);margin:auto}
+.selectTop{display:flex;align-items:center;gap:16px;padding:3px 2%;height:32px;background:#12121b;font:13px system-ui;color:#e1d8c9}
+.selectTop span{color:#bcb7ad;font-size:12px}.selectTop button{margin-left:auto;color:inherit;background:transparent;border:0;border-radius:0;padding:3px 8px;min-height:0;font:inherit}
+#selectBoard{position:relative;width:100%;height:min(calc(100dvh - 32px),56.25vw)}
+#selectBoard canvas,#selectButtons{position:absolute;inset:0;width:100%;height:100%}
+#selectButtons button{position:absolute;padding:0;min-width:0;min-height:0;border:none;background:transparent;box-shadow:none;cursor:pointer;transform:none}
+#selectButtons button:focus-visible{outline:2px solid white;outline-offset:-4px}
+#selectLoading{position:absolute;inset:44% 0 auto;text-align:center;pointer-events:none}
+.selectSr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+@media(max-aspect-ratio:1/1){#selectBoard{height:min(calc(100dvh - 36px),149vw)}.selectTop span{display:none}}

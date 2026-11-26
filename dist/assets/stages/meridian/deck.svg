@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="800" viewBox="0 0 960 400">
+  <defs>
+    <linearGradient id="steel" x1="0" y1="273" x2="0" y2="400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#958590"/><stop offset=".07" stop-color="#7c7687"/>
+      <stop offset=".33" stop-color="#626979"/><stop offset=".68" stop-color="#495868"/>
+      <stop offset="1" stop-color="#374857"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="51%" cy="0%" r="74%" gradientTransform="translate(0 .01) scale(1 .78)">
+      <stop stop-color="#f6bb99" stop-opacity=".57"/><stop offset=".44" stop-color="#eba9a5" stop-opacity=".2"/>
+      <stop offset="1" stop-color="#cc9eb0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="pool" gradientUnits="userSpaceOnUse" x1="0" y1="275" x2="0" y2="381">
+      <stop stop-color="#f9c7ac" stop-opacity=".48"/><stop offset=".5" stop-color="#d5afb3" stop-opacity=".24"/>
+      <stop offset="1" stop-color="#c6b3c0" stop-opacity=".13"/>
+    </linearGradient>
+    <pattern id="brushed" width="141" height="11" patternUnits="userSpaceOnUse">
+      <path d="M2 2h38m21 0h13m25 4h28M49 9h39" stroke="#c5c8d2" stroke-opacity=".10" stroke-width=".42"/>
+    </pattern>
+    <pattern id="drain" width="8" height="5" patternUnits="userSpaceOnUse">
+      <path d="M1 1h4l-1 2H0z" fill="#283340"/>
+    </pattern>
+    <clipPath id="floor"><path d="M0 273h960v127H0z"/></clipPath>
+  </defs>
+  <g clip-path="url(#floor)">
+    <path d="M0 273h960v127H0z" fill="url(#steel)"/>
+    <path d="M0 273h960v127H0z" fill="url(#sun)"/>
+    <path d="M0 273h960v127H0z" fill="url(#brushed)"/>
+    <!-- Reflections flatten toward the horizon; no vertical streak behind the feet. -->
+    <g fill="url(#pool)">
+      <path d="M366 278h79l13-1h59l7 1h41l-10 1h-32l7 1h-63l-12-1h-79z"/>
+      <path d="M398 286h37l10-1h51l5-1h58l12 1h-29l-7 1h46l7 1h-72l-19 1h-68l6-1h-49z"/>
+      <path d="M325 297h79l8-1h83l12-2h25l-5 1h39l10 1h-58l-12 2h-82l-15 1h-52l8-1h-53z"/>
+      <path d="M442 309h46l13-1h38l13 1h46l17 2h-53l-8-1h-63l-5 1h-20z"/>
+      <path d="M359 328h41l26-2h71l-15 1h49l9 1h-58l-29 1h-34l-14 1h-69z"/>
+      <path d="M568 343h28l23-2h55l13 1h-35l-15 2h-56l-11 1h-27z"/>
+      <path d="M234 357h46l28-3h60l10 2h-38l-20 2h-59l-19 1h-29z"/>
+      <path d="M487 371h81l15-2h62l22 2h-54l-15 2h-51l-15 1h-98z"/>
+    </g>
+    <g fill="none" stroke-linejoin="round">
+      <!-- Receding joints target a single vanishing point at (480,222). -->
+      <path d="m7 273-1177 127m1352-127L-560 400m864-127L-135 400m515-127L131 400m305-127L326 400m198-127L634 400m-54-127 249 127m-173-127 439 127m-317-127 742 127m-567-127 1178 127" stroke="#2c3b4b" stroke-opacity=".46" stroke-width=".85"/>
+      <path d="M0 281h960M0 294h960M0 316h960M0 351h960M0 394h960" stroke="#273846" stroke-opacity=".64" stroke-width="1"/>
+      <path d="M0 281.8h960M0 294.8h960M0 317h960M0 352h960M0 395h960" stroke="#c3c2c7" stroke-opacity=".22" stroke-width=".7"/>
+    </g>
+    <path d="M0 273h960v2H0z" fill="#c3a2a4"/>
+    <path d="M0 275h960v2H0z" fill="#5b5866"/>
+    <path d="M0 277h960v1H0z" fill="#e2ae92" opacity=".78"/>
+    <g fill="#d6d4cd" opacity=".47">
+      <path d="M29 324h37l-5 1H24zM80 323h13l-8 2H71zM865 323h15l10 2h-16zM900 324h37l5 1h-37z"/>
+      <path d="M35 374h51l-15 4H14zM94 374h16l-14 4H79zM846 374h17l17 4h-18zM869 374h46l23 4h-48z"/>
+    </g>
+    <path d="M0 380h960v2H0z" fill="#977f84"/>
+    <path d="M0 382h960v3.5H0z" fill="#49525f"/>
+    <path d="M0 382h960v3.5H0z" fill="url(#drain)"/>
+  </g>
+</svg>

@@ -1,0 +1,10 @@
+{
+  "name": "neural-clash",
+  "private": true,
+  "version": "8.21.0-rebuild",
+  "description": "AI 娘大乱斗 · 街机对战",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.cjs"
+  }
+}

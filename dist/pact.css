@@ -1,0 +1,89 @@
+#pactDialog.vn {
+  position:fixed;inset:0;box-sizing:border-box;width:100%;max-width:none;height:100dvh;max-height:none;
+  margin:0;padding:0;border:0;background:#232332;color:#fff9e9;overflow:auto;
+  font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+}
+#pactDialog.vn[open] {display:flex;flex-direction:column;isolation:isolate}
+#pactDialog.vn::backdrop {background:#14141c}
+.vn-stage {position:absolute;inset:0;z-index:-1;overflow:hidden;background:
+  linear-gradient(0deg,#16141ece,transparent 48%),url("assets/stages/meridian/sky.webp") center 45%/cover}
+.vn-stage::before {position:absolute;content:'';inset:0;background:linear-gradient(110deg,#09092040 0 49.7%,transparent 50%),radial-gradient(#17131e33 1px,transparent 1.5px);background-size:auto,8px 8px}
+.vn-portrait {position:absolute;top:5%;width:57%;height:127%;object-fit:contain;object-position:center top;transform:scaleX(var(--vn-face,1));transform-origin:50% 30%;
+  filter:brightness(.58) saturate(.68);transition:filter .22s ease,transform .22s ease;user-select:none;pointer-events:none}
+.vn-portrait.seat0 {left:-1%}.vn-portrait.seat1 {right:-1%}.vn-portrait.mirrored {--vn-face:-1}
+.vn-portrait.speaking {filter:brightness(1.04) drop-shadow(0 8px 8px #17131e5c);transform:scale(var(--vn-face,1),1) scale(1.018)}
+#pactDialog .vn-title {flex:none;align-self:flex-start;margin:clamp(12px,3vh,32px) 4vw auto;padding:.25em .95em .32em .6em;
+  background:#eefa52;color:#17161c;clip-path:polygon(0 0,100% 0,94% 100%,0 100%);font:italic 950 clamp(18px,2.6vw,37px)/1.1 var(--gx-title,system-ui)}
+.vn-box {box-sizing:border-box;align-self:center;width:min(1080px,93%);margin:clamp(120px,29vh,400px) auto max(3.5vh,env(safe-area-inset-bottom));position:relative;
+  border:2px solid #65616c;border-top:4px solid #edf660;background:linear-gradient(105deg,#15141bf7,#211d2af5);box-shadow:6px 7px 0 #17141bbe;
+  padding:clamp(22px,3vh,34px) clamp(16px,2.6vw,40px) clamp(14px,2vh,24px)}
+.vn-speaker-row {position:absolute;top:0;left:clamp(16px,2.6vw,40px);right:12px;transform:translateY(-75%);display:flex;align-items:center;gap:.5rem}
+.vn-waiting {padding:.3em .7em;background:#24212a;color:#fff3c5;font-weight:700}
+.vn-waiting::after {content:' …';animation:vn-wait 1.2s ease-in-out infinite alternate}
+@keyframes vn-wait {to{opacity:.25}}
+@media(prefers-reduced-motion:reduce){.vn-waiting::after{animation:none}}
+.vn-name {transform:skew(-8deg);padding:.23em 1.15em;
+  background:#eff858;color:#17151b;font:italic 900 clamp(17px,2vw,25px)/1.2 var(--gx-title,system-ui)}
+.vn-line {margin:3px 0 12px;min-height:1.5em;font-size:clamp(17px,1.8vw,25px);font-weight:700;line-height:1.45;overflow-wrap:anywhere}
+.vn-prior {margin:0 0 5px;color:#d0c8d5;font-size:clamp(12px,1.25vw,15px);overflow-wrap:anywhere;max-height:3em;overflow:auto}
+.vn-compose,.vn-presets,.vn-actions,.vn-terms,.pact-settings>div {display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.vn-compose {align-items:stretch}.vn-compose .vn-input {flex:1 1 160px;min-width:0;margin:0;box-sizing:border-box;resize:vertical;max-height:22vh;
+  font:inherit;padding:9px 12px;background:#0d0d14;color:white;border:1px solid #817888}
+.vn-actions {justify-content:flex-end;margin-top:12px}
+.vn-terms {margin:8px 0 12px;padding:8px 12px;border-left:4px solid #ff96ad;background:#312a38;color:#eee6e9;font-size:clamp(12px,1.2vw,15px)}
+.vn-terms strong {color:#ffc2d0}.vn-terms span {border-left:1px solid #645b6c;padding-left:8px}.vn-terms del {color:#dbbfd0}.vn-terms b {color:#f3fc7a}
+#pactDialog button,.pact-settings button {border:1px solid #77707e;padding:.55em 1em;background:#302c38;color:white;font:inherit;font-size:14px;font-weight:700;cursor:pointer}
+#pactDialog button.primary {background:#eff858;color:#16151c;border-color:#eff858;font-weight:800}
+#pactDialog button:disabled,.pact-settings button:disabled {opacity:.5;cursor:default}
+#pactDialog button:focus-visible,#pactDialog textarea:focus-visible,.pact-settings :focus-visible {outline:3px solid #f89eb3;outline-offset:2px}
+#pactDialog [hidden] {display:none!important}
+#pactDialog.plea .vn-stage {background:linear-gradient(0deg,#17161eab,#17161e36)}
+#pactDialog.plea {background:transparent}
+#pactDialog.plea::backdrop {background:#10101960}
+#pactDialog.plea .pact-status,.pact-settings p {color:#d6cfdb;font-size:14px}
+.pact-settings {margin:18px 0 12px}.pact-settings h3 {margin:0 0 8px}.pact-settings label {display:flex;align-items:center;gap:8px}
+.pact-settings select {background:#141318;color:white;border:1px solid #817888;padding:7px;max-width:54vw}
+@media(max-width:650px){.vn-box {width:96%;padding-inline:12px}.vn-portrait {height:106%;width:75%;top:10%}.vn-portrait.seat0 {left:-14%}.vn-portrait.seat1 {right:-14%}.vn-actions{gap:5px}}
+@media(max-height:520px){.vn-box {margin-top:12vh;margin-bottom:1vh;padding-block:14px 8px}.vn-actions {margin-top:5px}.vn-line{margin:1px 0 5px}.vn-portrait {top:0;height:134%}.vn-title {z-index:1}}
+@media(prefers-reduced-motion:reduce){.vn-portrait{transition:none}}
+#gxHud.pact-mode .gxh-bar::after {content:'';position:absolute;inset:0 auto 0 25%;border-left:2px solid #342936;border-right:1px solid #fff9}
+#gxHud.pact-mode .gxh-side.r .gxh-bar::after {left:75%}
+.pact-hud {position:absolute;z-index:6;inset:0;pointer-events:none;color:white;font:italic 800 clamp(11px,1.3vw,18px)/1.25 var(--gx-title,system-ui)}
+.pact-hud span {position:absolute;padding:.4em .75em}
+.pact-hud .seal {top:18%;background:#22212a;color:#fff498;border-left:3px solid #edf55e}
+.pact-hud .seat0 {left:3%}.pact-hud .seat1 {right:3%}
+.pact-hud .truce {top:25%;left:50%;transform:translateX(-50%);background:#23222b;text-align:center;border-bottom:2px solid #ff8cb0}
+.pact-ask {position:absolute;bottom:15%;left:3%;display:flex;align-items:center;gap:5px}
+.pact-ask button {cursor:pointer;background:#eff858;color:#15141c;border:1px solid #eff858;pointer-events:auto;font:inherit;padding:.48em .8em}
+.pact-key-hint {background:#191920;color:white;padding:.48em .75em;font:inherit}
+.pact-ask button:disabled {opacity:.7}
+.pact-hud [hidden],.pact-hud[hidden] {display:none!important}
+.gxh-skill.pact-locked {filter:grayscale(.9)}
+.gxh-skill.pact-locked:after {content:'已禁用';position:absolute;inset:0 0 18%;z-index:2;display:grid;place-content:center;background:#1a1926d9;color:#fff6a7}
+
+
+#pactDialog.pact-cue {position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;padding:0;margin:0;border:0;background:transparent}
+#pactDialog.pact-cue::backdrop {background:transparent}
+.pact-cue strong {position:absolute;transform:translate(-50%,-100%) rotate(-5deg);background:#fff8dc;color:#17151c;border:3px solid #17151c;box-shadow:4px 4px #17151c;padding:.3em .85em;font:italic 900 clamp(17px,2.2vw,32px)/1.2 var(--gx-title,system-ui)}
+
+.gxh-skill[data-loan] {border-color:#8ef5df}
+.gxh-skill[data-loan]::before {content:attr(data-loan);position:absolute;top:0;left:0;z-index:2;background:#112827;color:#9ff9e8;padding:.1em .3em;font-size:.65em}
+.vn-terms .changed {border-left:2px solid #fbc767;padding-left:.45em}
+.vn-terms del.changed {opacity:.78}
+.pact-estimate {margin:.5em 0 .8em;font-size:clamp(12px,1.1vw,15px);color:#e6e3ea}
+.pact-estimate summary {cursor:pointer;color:#edeeae}
+.pact-estimate p {margin:.35em 0}
+.vn-dossier {margin:1em 0 0;padding-top:.55em;border-top:1px solid #514b58}
+.vn-dossier summary {width:fit-content;padding:.3em 0;color:#d2ccd6}
+.vn-dossier summary:focus-visible {outline:2px solid #f89eb3;outline-offset:2px}
+.vn-dossier h3 {margin:.85em 0 .3em;font-size:1em}
+.vn-encounters {margin:.3em 0;padding-inline-start:1.4em;max-height:20vh;overflow:auto;overflow-wrap:anywhere;line-height:1.5}
+.vn-encounters li+li {margin-top:.35em}
+.pact-break {position:absolute;right:3%;bottom:15%;display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end;max-width:48%}
+.pact-break button {pointer-events:auto;cursor:pointer;font:inherit;background:#321d29;color:#ffdce6;border:1px solid #ff839f;padding:.45em .7em}
+.pact-feedback {position:absolute;top:34%;left:50%;transform:translateX(-50%);width:max-content;max-width:85%;text-align:center;white-space:pre-line;background:#171520ed;color:#fff3a4;border-left:4px solid #eafa58;padding:.45em .8em}
+
+.gxh-kit.l .gxh-skill.pact-locked:after {content:'用则背约'}
+#pactDialog .pact-estimate label {display:inline-flex;align-items:center;gap:.3em}
+#pactDialog .pact-estimate select,#pactDialog .pact-estimate input {background:#191820;color:white;padding:.25em;border:1px solid #797483}
+#pactDialog .pact-estimate input[type=number] {width:5em}

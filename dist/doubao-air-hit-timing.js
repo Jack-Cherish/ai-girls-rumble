@@ -1,0 +1,2 @@
+/* Visual only: preserve the first two hurt poses while airborne; don't plant a hand in air. */
+(function(root){function create(){return{reset(){},sample({id,key,b,phase}){if(id!=='doubao'||key!=='hit'||!b||326+(b.depth||0)-b.y<=2)return null;return {key:'hit',phase:Math.min(phase??b.hitPhase??0,.45)};}};}if(typeof module==='object')module.exports=create;else root.DoubaoAirHitTiming=create();})(typeof window==='object'?window:globalThis);
